@@ -1,0 +1,17 @@
+{
+  "name": "voxel-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@voxel-ui/components": "workspace:^",
+    "@voxel-ui/hook": "workspace:^",
+    "@voxel-ui/utils": "workspace:^"
+  }
+}
