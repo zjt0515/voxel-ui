@@ -3,4 +3,4 @@ export const componentInstall = (com) => {
     app.component(com.name, com)
   }
   return com
-}
+} 

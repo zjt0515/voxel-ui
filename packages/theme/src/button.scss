@@ -1,0 +1,182 @@
+.vox-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+
+  height: 32px;
+  min-width: 80px;
+  padding: 0 16px;
+  box-sizing: border-box;
+  line-height: 1;
+
+  background-color: #fff;
+  border: 2px solid #e3e5f1;
+  color: #4e5158;
+
+  border-radius: 12px;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+
+  span {
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &.is-disabled {
+    cursor: not-allowed;
+  }
+
+  &.is-round {
+    border-radius: 100px;
+  }
+
+  &.is-text {
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  &.is-link {
+    &,
+    &:hover {
+      padding: 0;
+      height: auto;
+      min-width: auto;
+      text-decoration: underline;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  &.is-border {
+    &,
+    &:hover {
+      background-color: transparent;
+    }
+  }
+
+  &.is-dashed {
+    border-style: dashed;
+  }
+
+  &.is-block {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  &.is-circle {
+    border-radius: 100px;
+    padding: 0;
+    min-width: auto;
+  }
+
+  &.is-button-group {
+    border-radius: 0;
+    + .is-button-group {
+      margin-left: -2px;
+    }
+
+    &:first-child {
+      border-radius: 12px 0 0 12px;
+    }
+    &:last-child {
+      border-radius: 0 12px 12px 0;
+    }
+  }
+}
+
+.vox-button--default {
+  background-color: #fff;
+  border-color: #e3e5f1;
+  color: #4d5059;
+  &:hover {
+    background-color: #f5f6fa;
+  }
+}
+.vox-button--primary {
+  background-color: #3069ff;
+  border: 2px solid #3069ff;
+  color: #fff;
+  &:hover {
+    background-color: #6e96ff;
+    border-color: #6e96ff;
+  }
+  &.is-border {
+    color: #3069ff;
+  }
+}
+.vox-button--success {
+  background-color: #14cd70;
+  border-color: #14cd70;
+  color: #fff;
+
+  &:hover {
+    background-color: #5adc9b;
+    border-color: #5adc9b;
+  }
+
+  &.is-disabled {
+    &,
+    &:hover,
+    &:focus {
+      background-color: #89e6b7;
+      border-color: #89e6b7;
+    }
+  }
+}
+.vox-button--warning {
+  background-color: #ffa81a;
+  border-color: #ffa81a;
+  color: #fff;
+  &:hover {
+    background-color: #ffc25e;
+    border-color: #ffc25e;
+  }
+
+  &.is-text {
+    color: #ffa81a;
+    &:hover {
+      background-color: #fff6e8;
+      border-color: #fff6e8;
+    }
+  }
+}
+.vox-button--error {
+  background-color: #ff4a5b;
+  border-color: #ff4a5b;
+  color: #fff;
+  &:hover {
+    background-color: #ff808c;
+    border-color: #ff808c;
+  }
+  &.is-link {
+    color: #ff4a5b;
+  }
+}
+
+.vox-button--size_small {
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  // 不需要最小宽度
+  min-width: auto;
+  .vox-icon {
+    font-size: 12px;
+  }
+}
+.vox-button--size_default {
+  .vox-icon {
+    font-size: 14px;
+  }
+}
+.vox-button--size_large {
+  height: 40px;
+  font-size: 16px;
+  .vox-icon {
+    font-size: 16px;
+  }
+}
