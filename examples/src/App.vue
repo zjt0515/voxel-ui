@@ -1,4 +1,5 @@
 <script setup>
+import { Setting } from '../../packages/icons';
 </script>
 
 <template>
@@ -27,6 +28,10 @@
     <vox-button>默认</vox-button>
     <vox-button>默认</vox-button>
   </vox-button-group>
+
+  <vox-icon>
+    <setting></setting>
+  </vox-icon>
 </template>
 
 <style scoped></style>

@@ -1,0 +1,1 @@
+import '@voxel-ui/theme/src/icon.scss'
