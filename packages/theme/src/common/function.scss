@@ -1,0 +1,18 @@
+@use 'config.scss' as *;
+
+// 生成变量名: --vox-item-item...
+// 传入多个参数要用()括起来
+@function createVarName($list) {
+  $name: '--' + $namespace;
+  @each $item in $list {
+    @if $item != '' {
+      $name: $name + '-' + $item;
+    }
+  }
+  @return $name;
+}
+
+// 获取变量名称
+@function getVarName($args...) {
+  @return createVarName(($args));
+}

@@ -1,0 +1,99 @@
+@use 'sass:map';
+
+$colors: () !default;
+
+$types: primary, success, warning, error;
+
+$colors: map.deep-merge(
+  (
+    'white': #ffffff,
+    'black': #000000,
+    'primary': (
+      'base': #3069ff
+    ),
+    'success': (
+      'base': #14cd70
+    ),
+    'warning': (
+      'base': #ffa81a
+    ),
+    'error': (
+      'base': #ff4a5b
+    )
+  ),
+  $colors
+);
+
+// 色调变量
+$color-white: map.get($colors, 'white') !default;
+$color-black: map.get($colors, 'black') !default;
+$color-primary: map.get($colors, 'primary', 'base') !default;
+$color-success: map.get($colors, 'success', 'base') !default;
+$color-warning: map.get($colors, 'warning', 'base') !default;
+$color-error: map.get($colors, 'error', 'base') !default;
+
+// 边框颜色
+$border-color: () !default;
+$border-color: map.deep-merge(
+  (
+    'default': #e2e6f1,
+    'disabled': #ebeef5
+  ),
+  $border-color
+);
+/**
+ * 层次颜色生成
+ * type-i-light-
+ */
+@mixin set-color-level($type, $number, $mode: 'light', $mix-color) {
+  $colors: map.deep-merge(
+    (
+      $type: (
+        '#{$mode}-#{$number}':
+          mix($mix-color, map.get($colors, $type, 'base'), $number * 10)
+      )
+    ),
+    $colors
+  ) !global;
+}
+
+@each $type in $types {
+  @for $i from 1 through 9 {
+    @debug '打印层次色 $type';
+    @debug $type;
+    @include set-color-level($type, $i, 'light', $color-white);
+  }
+}
+@debug $colors;
+
+// 层次色调
+// $colors: map.deep-merge(
+//   (
+//     'primary': (
+//       'light-1': mix(#ffffff, $color-primary, 90)
+//     )
+//   )
+// );
+
+// * =================== Section: 字体 ===================
+
+$font-size: () !default;
+$font-size: map.deep-merge(
+  (
+    'small': 12px,
+    'default': 14px,
+    'large': 16px
+  ),
+  $font-size
+);
+
+$text-color: () !default;
+// $font-size: () !default;
+$border-color: () !default;
+$component-size: () !default;
+$global: (
+  'text-color': $text-color,
+  'font-size': $font-size,
+  'border-color': $border-color,
+  'component-size': $component-size
+);

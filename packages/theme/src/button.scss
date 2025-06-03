@@ -1,4 +1,9 @@
+@use './common/mixins.scss' as *;
+@use './common/componentVar.scss' as *;
+@include b(button) {
+}
 .vox-button {
+  @include set-component-var('button', buttonVar());
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -97,8 +102,9 @@
   }
 }
 .vox-button--primary {
-  background-color: #3069ff;
-  border: 2px solid #3069ff;
+  $var: getVarName('color', 'primary');
+  background-color: var(#{$var});
+  border: 2px solid var(#{$var});
   color: #fff;
   &:hover {
     background-color: #6e96ff;
@@ -109,8 +115,8 @@
   }
 }
 .vox-button--success {
-  background-color: #14cd70;
-  border-color: #14cd70;
+  background-color: var(--vox-color-success);
+  border-color: var(--vox-color-success);
   color: #fff;
 
   &:hover {
@@ -158,6 +164,9 @@
 }
 
 .vox-button--size_small {
+  #{getVarName('button', 'size')}: var(
+    #{getVarName('component-size', 'small')}
+  );
   height: 24px;
   padding: 0 10px;
   border-radius: 10px;

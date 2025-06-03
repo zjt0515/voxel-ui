@@ -1,0 +1,57 @@
+@use 'function' as *;
+
+/**
+ * button配置
+ */
+@function buttonVar($type: '') {
+  $button: (
+    // 按钮颜色
+    'border-color':
+      (
+        'default': getVarName('border-color', 'default'),
+        'type': getVarName('border-color', $type)
+      ),
+    'text-color': (
+      'default': getVarName('text-color', 'primary'),
+      'type': getVarName('border-color', 'white')
+    ),
+    'bg-color': (
+      'default': getVarName('color', 'white'),
+      'type': getVarName('border-color', $type)
+    ),
+    // hover
+    'hover-text-color':
+      (
+        'default': getVarName('text-color', 'primary'),
+        'type': getVarName('border-color', 'white')
+      ),
+    'hover-border-color': (
+      'default': getVarName('border-color', 'primary', 'light-7'),
+      'type': getVarName('border-color', $type, 'light-3')
+    ),
+    'hover-bg-color': (
+      'default': getVarName('color', 'primary', 'light-9'),
+      'type': getVarName('border-color', $type, 'light-3')
+    ),
+    // disabled
+    'disabled-text-color':
+      (
+        'default': getVarName('text-color', 'disabled'),
+        'type': getVarName('border-color', 'white')
+      ),
+    'disabled-bg-color': (
+      'default': getVarName('color', 'white'),
+      'type': getVarName('border-color', $type, 'light-5')
+    ),
+    'disabled-border-color': (
+      'default': getVarName('border-color', 'disabled'),
+      'type': getVarName('border-color', $type, 'light-5')
+    ),
+    // 按钮尺寸
+    'size':
+      (
+        'default': getVarName('component-size', 'default')
+      )
+  );
+  @return $button;
+}

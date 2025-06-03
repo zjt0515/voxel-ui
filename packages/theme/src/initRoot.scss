@@ -1,0 +1,11 @@
+@use './common/var.scss' as *;
+@use './common/mixins.scss' as *;
+
+:root {
+  --vox-color-primary: #{$color-primary};
+  --vox-color-success: #{$color-success};
+
+  // 主色 辅助色
+  @include set-color();
+  @include set-color-light();
+}
