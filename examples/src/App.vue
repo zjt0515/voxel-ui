@@ -32,6 +32,9 @@ import { Setting } from '../../packages/icons';
   <vox-icon>
     <setting></setting>
   </vox-icon>
+
+  <vox-input></vox-input>
+  <vox-input disabled></vox-input>
 </template>
 
 <style scoped></style>
